@@ -68,7 +68,9 @@ default = ["http-proto", "reqwest-blocking-client", "trace", "metrics", "logs", 
 grpc-tonic = ["tonic", "prost", "http", "tokio", "opentelemetry-proto/gen-tonic"]
 gzip-tonic = ["tonic/gzip"]
 zstd-tonic = ["tonic/zstd"]
-tls = ["tonic/tls-ring"]
+tls = []
+tls-aws-lc = ["tls", "tonic/tls-aws-lc"]
+tls-ring = ["tls", "tonic/tls-ring"]
 tls-roots = ["tls", "tonic/tls-native-roots"]
 tls-webpki-roots = ["tls", "tonic/tls-webpki-roots"]
 
