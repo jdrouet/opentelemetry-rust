@@ -110,8 +110,8 @@ mod tests {
         assert_eq!(log.record.attributes_len(), 10);
         for i in 1..=10 {
             assert!(log.record.attributes_contains(
-                &Key::new(format!("key{}", i)),
-                &AnyValue::String(format!("value{}", i).into())
+                &Key::new(format!("key{i}")),
+                &AnyValue::String(format!("value{i}").into())
             ));
         }
 
@@ -171,7 +171,7 @@ mod tests {
             Ok(())
         }
 
-        fn shutdown(&self) -> crate::error::OTelSdkResult {
+        fn shutdown_with_timeout(&self, _timeout: std::time::Duration) -> OTelSdkResult {
             Ok(())
         }
     }
@@ -277,7 +277,7 @@ mod tests {
             Ok(())
         }
 
-        fn shutdown(&self) -> OTelSdkResult {
+        fn shutdown_with_timeout(&self, _timeout: std::time::Duration) -> OTelSdkResult {
             Ok(())
         }
     }
